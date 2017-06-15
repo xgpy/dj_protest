@@ -1,0 +1,51 @@
+.blogs_head{
+	background-color:#2459a2;
+	height:60px;
+}
+.blogs_head_middle{
+	margin:0 auto;
+	height:60px;
+	width:1200px;
+	font-size:22px;
+	position:relative;
+	line-height:60px;
+}
+.a_title{
+	font-size:30px;
+	color:yellow;
+}
+.a_active{
+	background-color:#204982;
+}
+.a_tb{
+	color:#fff;
+	padding:21px 16px 16px 16px;
+}
+.blogs_head_middle a{
+	text-decoration:none;
+}
+
+
+
+
+.background{
+	margin:0 auto;
+	text-align:center;
+    position:absolute;
+    background:#0099e0 url(images/login.jpg) 50% 100% no-repeat;
+    height:920px;
+    width:1899px;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:20;
+}
+
+
+
+
+
+
+
+

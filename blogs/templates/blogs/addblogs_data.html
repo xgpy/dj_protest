@@ -1,0 +1,46 @@
+{% extends 'base_h.html' %}
+
+{% block title %}{{name}}欢迎光临{% endblock %}
+{% block css_file %}
+<link rel="stylesheet" type="text/css" href="/static/blogs/css/adddata.css">
+{% endblock %}
+{% block content %}
+<div class='head_bg'>
+	<div class='blogcla'>
+		<form action='/addblogs/' method='POST'>
+			<div>
+				<div class='blogadd'>
+					博客标题：<input class='bloginput' name='blogtitle' type='text' />
+				</div>
+				<div class='blogadd'>
+					标题级别：
+					<select  class='blogselect' name='bloglevel'>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+					</select>
+				</div>
+				<div class='blogadd'>
+					上级标题：<input class='bloginput' name='pretitle' type='text' />
+				</div>
+				<div class='blogadd'>
+					博客内容：<textarea class='blogtext' name='blogcontent'>
+<div class="content_code"><div class="code_button" onclick="code_click(this);">点此查看代码</div><div class="code_cont hide">print 'span标签！！！' 
+
+print 'span部分！！！'
+</div>
+</div>
+					</textarea>
+				</div>
+				<div>
+					<input type='submit' class='submitblg' value='提交'>
+					<label style='color:red;font-size:20px;'>{{title}}&nbsp;{{ msg }}</label>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
+{% block js_file %}
+<script src="/static/blogs/js/adddata.js"></script>
+{% endblock %}

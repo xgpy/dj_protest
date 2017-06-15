@@ -1,0 +1,202 @@
+{% extends 'base_h.html' %}
+
+{% block title %}{{name}}欢迎光临首页{% endblock %}
+{% block css_file %}
+<link rel="stylesheet" type="text/css" href="/static/blogs/css/common.css">
+<link rel="stylesheet" type="text/css" href="/static/blogs/css/content.css">
+{% endblock %}
+{% block content %}
+<div class='head_bg'>
+	<div class='blogs_wid'>
+		<div class='blogs_head_middle'>
+			<span class='super_cla'>
+				<a href='/addblogs/' target='_blank'>BLOG添加</a>
+				<a href='/updateblogs/' target='_blank'>BLOG更新</a>
+			</span>
+			<span class='head_l2'>当前登录用户:{{ curuser }}</span>
+			<span class='head_login'>
+				<a href='/adddata/'>注册</a>
+				<a href='/login/'>登录</a>
+				<a href='/logout/'>退出</a>
+			</span>
+			<div class='blogs_notices'>
+				<div class='bnotice_h'>公告</div>
+				<div class='bnotice_c'>&nbsp;&nbsp;&nbsp;&nbsp;本网站旨在技术交流，主要是记录平时遇到的问题和解决方法，希望对大家有用，如果哪里有不对的地方，也希望大家能及时指正，谢谢！！！</div>
+			</div>
+			<div class='head_t'>
+				<a class='a_title' href=''>GUAN博客首页</a>
+			</div>
+			<div class='head_m'>
+				<a id='python2' class='a_tb a_active' href='/blogs/python2/'>PYTHON</a>
+				<a id='django' class='a_tb' href='/blogs/django/'>DJANGO</a>
+				<a id='html' class='a_tb' href='/blogs/html/'>HTML</a>
+				<a id='css' class='a_tb' href='/blogs/css/'>CSS</a>
+				<a id='javascript' class='a_tb' href='/blogs/javascript/'>JAVASCRIPT</a>
+				<a id='ajax' class='a_tb' href='/blogs/ajax/'>AJAX</a>
+				<a id='jquery' class='a_tb' href='/blogs/jquery/'>JQUERY</a>
+			</div>
+			<!--<div class='head_m'>
+				<a id='a_id1' class='a_tb a_active' href='#'>PYTHON</a>
+				<a id='a_id2' class='a_tb' href='#'>DJANGO</a>
+				<a id='a_id3' class='a_tb' href='#'>HTML</a>
+				<a id='a_id4' class='a_tb' href='#' onclick='change_cla(this);'>CSS</a>
+				<a id='a_id5' class='a_tb' href='javascript:change_cla(a_id5);'>JAVASCRIPT</a>
+				<a id='a_id6' class='a_tb' href='javascript:change_cla(a_id6);'>AJAX</a>
+				<a id='a_id7' class='a_tb' href='javascript:change_cla(a_id7);'>JQUERY</a>
+			</div>-->
+		</div>
+	</div>
+</div>
+<div class='body_bg'>
+	<div class='content_bg'>
+		<div class='cont_stru'>
+			{% for dt in data_blogs %}
+			<div class="menu_title1" onclick='stru_click(this);'>{{ dt.1.title }}</div>
+			{% for dd in dt.data %}
+			<div class="menu_title1" onclick='stru_click(this);'>{{ dd.2.title }}</div>
+			{% for ddbs in dd.data %}
+            <div class="menu_title2">
+			{% for ddb in ddbs.data %}
+			{% if ddb.data != '' %}
+                <a class="menu_a" href='#/blogcont/' onclick='cont_click(this);'>{{ ddb.title }}</a><br/>
+	        {% endif %}
+            {% endfor %}
+            </div>
+            {% endfor %}
+        	{% endfor %}
+            {% endfor %}
+		</div>
+		<div class='cont_con'>
+			<div id='cont_t1' class='cont_head'>
+				<div id='cont_h1' class='cont_title'>{{cont_tit.title}}</div>
+				<div id='cont_h2' class='cont_count1'>访问量：<span id='blog_visitnum'>{{cont_tit.visit_count}}</span></div>
+				<div id='cont_h3' class='cont_count2'>创建时间：{{cont_tit.note_date|date:"Y-m-d H:i:s"}}</div><br/>
+			</div>
+			<div id='cont_t2' class='cont_body'>
+				<pre class='content_cla'>{{stru_cont.cont_py}}
+				</pre>
+			</div>
+			<div id='cont_t3' class='comment_cla'>
+				<div class='comment_h'>
+					<a onclick='commclick_h(this);'>评论：</a>
+					<span>{{commnum}}</span>
+				</div>
+				<div class='hide'>
+					{% for comm in commentpy %}
+					<div id=1>
+						<div class='comm_user'>
+							<span>{{comm.1.comment_user}}</span>
+							<span>&nbsp;:&nbsp;</span>
+							<span>{{comm.1.comment_date|date:"Y-m-d H:i:s"}}</span>
+						</div>
+						<div>
+							<pre class='comm_cont'>{{comm.1.comment_cont}}</pre>
+						</div>
+						<div class='reply_button' onclick='reply_click(this);'>回复</div>
+					</div>
+					<div class='hide'>
+						<textarea class='reply_area'></textarea>
+						<div class='reply_commit' onclick='reply_subcli(this);'>提交回复</div>
+					</div>
+					{% for c2 in comm.data %}
+						{% if c2 != '' %}
+					<div id=2>
+						<div class='comm_user2'>
+							<span>{{c2.2.comment_user}}</span>
+							<span>&nbsp;:&nbsp;</span>
+							<span>{{c2.2.comment_date|date:"Y-m-d H:i:s"}}</span>
+						</div>
+						<div>
+							<pre class='comm_cont2'>{{c2.2.comment_cont}}</pre>
+						</div>
+						<div class='reply_button2' onclick='reply_click(this);'>回复</div>
+					</div>
+					<div class='hide'>
+						<textarea class='reply_area2'></textarea>
+						<div class='reply_commit2' onclick='reply_subcli(this);'>提交回复</div>
+					</div>
+					{% for c3t in c2.data %}
+					{% for c3 in c3t.3 %}
+						{% if c3 != '' %}
+					<div id=3>
+						<div class='comm_user3'>
+							<span>{{c3.comment_user}}</span>
+							<span>&nbsp;:&nbsp;</span>
+							<span>{{c3.comment_date|date:"Y-m-d H:i:s"}}</span>
+						</div>
+						<div>
+							<pre class='comm_cont3'>{{c3.comment_cont}}</pre>
+						</div>
+						<!--<div class='reply_button3' onclick='reply_click(this);'>回复</div>-->
+					</div>
+					<div class='hide'>
+						<textarea class='reply_area3'></textarea>
+						<div class='reply_commit3' onclick='reply_subcli(this);'>提交回复</div>
+					</div>
+						{% endif %}
+					{% endfor %}
+					{% endfor %}
+					{% endif %}
+					{% endfor %}
+					{% endfor %}
+				</div>
+				<div class='commarea_h'>
+					<textarea class='comment_area'></textarea>
+					<div class='comment_button' onclick='comment_click(this);'>发表评论</div>
+				</div>
+			</div>
+		</div>
+		<div class='cont_r'>
+			<div class='chat_h'>WEB聊天窗口</div>
+			<div class='chat_part'>
+				{% for chd in chat_data %}
+				<div class='chat_u'>{{chd.username}}&nbsp;:&nbsp;{{chd.chat_date|date:"Y-m-d H:i:s"}}</div>
+				<div class='chat_c'>{{chd.chat_cont}}</div>
+				{% endfor %}
+			</div>
+			<div class='chat_send'>
+				<textarea class='chat_contcla' name='chat_input'></textarea>
+				<div class='chat_button' onclick='chat_sendjs(this);' >发送</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class='blog_bottom'>
+	<div class='wid_bottom'>
+		<div class='cont_bottom'>
+			<div class='blog_b1'>
+				<a href='/sorry/'> 公司介绍 |</a>
+				<a href='/sorry/'> 招贤纳士 |</a>
+				<a href='/sorry/'> 广告服务 |</a>
+				<a href='/sorry/'> 联系方式 |</a>
+				<a href='/sorry/'> 版权声明 |</a>
+				<a href='/sorry/'> 法律顾问 |</a>
+				<a href='/sorry/'> 问题报告 |</a>
+				<a href='/sorry/'> 合作伙伴 |</a>
+				<a href='/sorry/'> 论坛反馈 </a>
+			</div>
+			<div class='blog_b2'>
+				<a class='blog_a1' target='_blank' href='/sorry/'></a>
+				<a target='_blank' href='/sorry/'> 网站客服 </a>
+				<a class='blog_a2' target='_blank' href='/sorry/'></a>
+				<a target='_blank' href='/sorry/'> 杂志客服 </a>
+				<a class='blog_a3' target='_blank' href='/sorry/'></a>
+				<a target='_blank' href='/sorry/'> 微博客服 </a>
+				<a class='blog_a4' target='_blank' href='/sorry/'></a>
+				<a target='_blank' href='/sorry/'> guan@guan.com </a>
+				<a class='blog_a5' target='_blank' href='/sorry/'></a>
+				<a target='_blank' href='/sorry/'> 400-500-6000 | </a>
+				<span> GUAN网站 版权所有 </span>
+			</div>
+			<div class='blog_b3'>
+				<span>晓 00000001 号 | </span>
+				<span> Copyright © 2017-3000, www.guansites.cn, All Rights Reserved </span>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block js_file %}
+<script src="/static/blogs/js/common.js"></script>
+<script src="/static/blogs/js/content.js"></script>
+{% endblock %}

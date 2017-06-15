@@ -1,0 +1,26 @@
+.webapp_background{
+    position:relative;
+    background:#0099e0 url(images/webapp.jpg) 50% 36% no-repeat;
+    height:910px;
+    width:1890px;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+}
+#webapp{
+	font-size:30px;
+	padding-top:75px;
+	padding-left:222px;
+}
+.logout{
+	background-color:#3592ef;
+	font-size:25px;
+	height:32px;
+	width:65px;
+	margin-top:339px;
+	margin-left:880px;
+}
+.cur_user{
+	font-size:20px;
+}

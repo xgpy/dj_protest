@@ -1,0 +1,13 @@
+{% extends 'base_h.html' %}
+
+{% block title %}{{name}}欢迎光临首页{% endblock %}
+
+{% block content %}
+<div class='webapp_background'>
+	<div class='cur_user'>当前用户名：{{curuser}}</div>
+	<div id='webapp'>这里是首页，欢迎光临！！！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+	<form action='/logout/' method='POST'>
+		<input class='logout' type='submit' value='退出'/>
+	</form>
+</div>	
+{% endblock %}

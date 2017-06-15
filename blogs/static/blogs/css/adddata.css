@@ -1,0 +1,84 @@
+body{
+	margin:0;
+}
+.head_bg{
+    background:#0099e0 url(images/head_bg.jpg) 80% 50% no-repeat;
+    height:930px;
+}
+.formcla{
+	margin:0 auto;
+	border: 5px outset #6D77C7;
+	height:500px;
+	width:600px;
+	padding-top:20px;
+	padding-left:30px;
+}
+.userincla{
+	height:30px;
+	width:300px;
+}
+.usercla{
+	font-size:30px;
+}
+.d_indata{
+	margin-top:60px;
+}
+.submitcla{
+	height:30px;
+	width:200px;
+	margin-top:90px;
+	margin-left:130px;
+}
+.blogcla{
+	margin:0 auto;
+	border: 5px outset #6D77C7;
+	height:900px;
+	width:999px;
+}
+.blogadd{
+	height:17px;
+	width:90px;
+	margin-top:20px;
+	margin-left:30px;
+}
+.bloginput{
+	float:left;
+	height:17px;
+	width:190px;
+	margin-top:-20px;
+	margin-left:80px;
+}
+.blogselect{
+	float:left;
+	height:25px;
+	width:193px;
+	margin-top:-20px;
+	margin-left:80px;
+}
+.blogtext{
+	height:600px;
+	width:799px;
+	margin-left:80px;
+	font-size:15px;
+}
+.submitblg{
+	height:30px;
+	width:200px;
+	margin-top:653px;
+	margin-left:200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

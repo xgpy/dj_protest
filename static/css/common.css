@@ -1,0 +1,82 @@
+.background{
+    position:absolute;
+    background:#0099e0 url(images/login.jpg) 50% 100% no-repeat;
+    height:920px;
+    width:1899px;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:20;
+}
+h1{
+	padding-top:200px;
+	padding-left:666px;
+}
+
+.login_frame{
+	padding-top:65px;
+	padding-left:10px;
+	background:#19597f;
+	height:360px;
+	width:410px;
+	margin-left:670px;
+}
+.userpass{
+	font-size:30px;
+	height:90px;
+}
+.pass_title{
+	float:left;
+}
+.user_title{
+	float:left;
+}
+.login_butt{
+	padding-top:50px;
+	padding-left:50px;
+}
+.login_button{
+	background-color:#7cb3ba;
+	font-size:25px;
+	padding-left:119px;
+	padding-right:125px;
+}
+.inputcla{
+	font-size:20px;
+	height:35px;
+	width:226px;
+	margin-left:146px;
+	margin-top:-41px;
+	float:left;
+}
+.login_msg{
+	font-size:20px;
+	padding-left:60px;
+}
+.input_user{
+	border:1.5px solid #A8A1A1;
+    background:#f8f8f8 url(images/pwd-icons-new.png) 0px 0px no-repeat;
+    margin-top:-2px;
+    margin-left:-1px;
+    width:40px;
+    height:39px;
+    float:left;
+}
+.input_pass{
+	border:1.5px solid #A8A1A1;
+    background:#f8f8f8 url(images/pwd-icons-new.png) -47px 0px no-repeat;
+    margin-top:-2px;
+    margin-left:-1px;
+    width:40px;
+    height:39px;
+    float:left;
+}
+
+
+
+
+
+
+
+

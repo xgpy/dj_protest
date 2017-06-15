@@ -1,0 +1,39 @@
+{% extends 'base_h.html' %}
+
+{% block title %}{{name}}欢迎登录{% endblock %}
+
+{% block content %}
+<div class='background_bg'>
+	<div class='background'>
+		<h1>这里是&nbsp{{name}}&nbsp网站，欢迎登录！</h1>
+		<form action='/login/' method='POST'>
+			<div class='login_frame'>
+				<div class='userpass'>
+					<div class='user_title'>用户名:</div>
+					<div class='input_user'></div>
+					{{data.username}}
+				</div>
+				<div class='userpass'>
+					<div class='pass_title'>密&nbsp&nbsp码:</div>
+					<div class='input_pass'></div>
+					{{data.password}}
+				</div>
+				<div class='userpass'>
+					<div class='identf_pass'></div>
+					<input type='text' class='identf_code' name='check_code' placeholder="请输入验证码">
+				</div>
+				<div class='identf_img'>
+					<img id='check_code_img' src='/identf_code/' onclick="refresh_check_code(this);">
+				</div>
+				<div class='login_butt'>
+					<input class='login_button' type='submit' value='登&nbsp&nbsp&nbsp录'></br>
+					<label class='login_msg' style='color:#F7615B;'>{{ error }}</label>
+				</div>
+				<div class='register'>
+					<a href='/adddata/'>注册</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}

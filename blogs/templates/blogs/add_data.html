@@ -1,0 +1,36 @@
+{% extends 'base_h.html' %}
+
+{% block title %}{{name}}欢迎光临{% endblock %}
+{% block css_file %}
+<link rel="stylesheet" type="text/css" href="/static/blogs/css/adddata.css">
+{% endblock %}
+{% block content %}
+<div class='head_bg'>
+	<div class='formcla'>
+		<form action='/adddata/' method='POST'>
+		<!--<form action='#' method='POST'>-->
+			<div>
+				<div class='d_indata'>
+					<div class='usercla'>username: {{data.username}}</div>
+				</div>
+				<div>
+					<div class='usercla'>password: {{data.password}}</div>
+				</div>
+				<div>
+					<div class='usercla'> &nbsp;email&nbsp; :&nbsp;{{data.email}}</div>
+				</div>
+				<div>
+					<div class='usercla'>usertype: {{data.user_type}}</div>
+				</div>
+				<div>
+					<input type='submit' class='submitcla' value='提交'>
+					<label style='color:red;'>{{ msg }}</label>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
+{% block js_file %}
+<script src="/static/blogs/js/adddata.js"></script>
+{% endblock %}
